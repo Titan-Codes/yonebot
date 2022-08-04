@@ -11,6 +11,7 @@ import {
 import {createConnection} from 'typeorm'
 import {globals} from './globals.js'
 import {UserError} from './utils'
+import {handleMemberUpdate} from './member-update-handler'
 
 export const discordClient = new SlashasaurusClient(
     {
@@ -39,6 +40,7 @@ discordClient.on('messageReactionAdd', handleNewReaction)
 discordClient.on('messageReactionRemove', handleReactionRemoved)
 discordClient.on('messageReactionRemoveAll', handleAllReactionsRemoved)
 discordClient.on('messageReactionRemoveEmoji', handleEmojiRemoved)
+discordClient.on('guildMemberUpdate', handleMemberUpdate)
 
 discordClient.once('ready', async () => {
     console.log(`${discordClient.user?.tag} logged in`)
