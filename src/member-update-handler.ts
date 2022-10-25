@@ -8,6 +8,6 @@ export async function handleMemberUpdate(prev: GuildMember | PartialGuildMember,
     const isPatheticallyPythonic = next.roles.cache.has(PATHETICALLY_PYTHONIC_ROLE_ID)
     if (wasPatheticallyPythonic && !isPatheticallyPythonic) {
         await sleep(5000)
-        await next.roles.add(PATHETICALLY_PYTHONIC_ROLE_ID)
+        //await next.roles.add(PATHETICALLY_PYTHONIC_ROLE_ID)
     }
 }
