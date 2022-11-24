@@ -5,7 +5,7 @@ export async function handleMessage(client: Client, message: Message) {
     return
   }
   if(message.content.includes('yone')) {
-    message.reply('yone')
+    message.channel.send('yone')
     try {
       await message.react('940082584896028762')
     } catch (e) {}
