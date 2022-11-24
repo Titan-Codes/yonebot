@@ -35,7 +35,7 @@ export const discordClient = new SlashasaurusClient(
     },
 )
 
-discordClient.on('messageCreate', handleMessage)
+discordClient.on('messageCreate', message => handleMessage(discordClient, message))
 discordClient.on('messageReactionAdd', handleNewReaction)
 discordClient.on('messageReactionRemove', handleReactionRemoved)
 discordClient.on('messageReactionRemoveAll', handleAllReactionsRemoved)

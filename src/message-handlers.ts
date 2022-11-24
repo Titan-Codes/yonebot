@@ -1,8 +1,13 @@
-import {Message} from 'discord.js'
+import {Client, Message} from 'discord.js'
 
-export function handleMessage(message: Message) {
+export async function handleMessage(client: Client, message: Message) {
+  if (message.author.id === client.user?.id) {
+    return
+  }
   if(message.content.includes('yone')) {
     message.reply('yone')
-    message.react('940082584896028762')
+    try {
+      await message.react('940082584896028762')
+    } catch (e) {}
   }
 }
